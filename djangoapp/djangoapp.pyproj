@@ -35,6 +35,7 @@
     <Compile Include="web\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="requirements.txt" />
     <Content Include="todo\templates\todo\layout.html" />
   </ItemGroup>
   <ItemGroup>
