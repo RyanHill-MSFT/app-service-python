@@ -23,7 +23,7 @@ env:
   AZURE_WEBAPP_NAME: ${{ secrets.WEBAPP_NAME }}  # set this to the name of your Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: 'djangoapp'         # set this to the path to your web app project, defaults to the repository root
   PYTHON_VERSION: '3.8'                          # set this to the Python version to use
-  STARTUP_COMMAND: ''
+  STARTUP_COMMAND: 'gunicorn --bind=0.0.0.0 --timeout 600 --chdir djangoapp web.wsgi'
 
 defaults:
   run:
