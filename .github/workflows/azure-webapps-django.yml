@@ -21,17 +21,18 @@ name: Build and deploy Python app to Azure Web App
 
 env:
   AZURE_WEBAPP_NAME: ${{ secrets.WEBAPP_NAME }}  # set this to the name of your Azure Web App
-  PYTHON_VERSION: '3.8'              # set this to the Python version to use
+  AZURE_WEBAPP_PACKAGE_PATH: 'djangoapp'         # set this to the path to your web app project, defaults to the repository root
+  PYTHON_VERSION: '3.8'                          # set this to the Python version to use
+  STARTUP_COMMAND: ''
 
 defaults:
   run:
-    working-directory: djangoapp
+    working-directory: 'djangoapp'
     
 on:
   push:
     branches:
       - "main"
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -51,11 +52,13 @@ jobs:
 
       - name: Create and start virtual environment
         run: |
-          python -m venv venv
-          source venv/bin/activate
+          python -m venv --copies antenv
+          source antenv/bin/activate
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
@@ -89,3 +92,5 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          startup-command: ${{ env.STARTUP_COMMAND }}
