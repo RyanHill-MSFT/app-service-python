@@ -10,8 +10,10 @@
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
-    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <LaunchProvider>Django launcher</LaunchProvider>
     <InterpreterId>Global|VisualStudio|.venv</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <Name>djangoweb</Name>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -20,14 +22,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="manage.py" />
-    <Compile Include="todo\admin.py" />
-    <Compile Include="todo\apps.py" />
-    <Compile Include="todo\migrations\__init__.py" />
-    <Compile Include="todo\models.py" />
-    <Compile Include="todo\tests.py" />
-    <Compile Include="todo\urls.py" />
-    <Compile Include="todo\views.py" />
-    <Compile Include="todo\__init__.py" />
+    <Compile Include="app\admin.py" />
+    <Compile Include="app\apps.py" />
+    <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="app\models.py" />
+    <Compile Include="app\tests.py" />
+    <Compile Include="app\urls.py" />
+    <Compile Include="app\views.py" />
+    <Compile Include="app\__init__.py" />
     <Compile Include="web\asgi.py" />
     <Compile Include="web\settings.py" />
     <Compile Include="web\urls.py" />
@@ -36,14 +38,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
-    <Content Include="todo\templates\todo\layout.html" />
+    <Content Include="app\templates\app\layout.html" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="todo" />
-    <Folder Include="todo\migrations" />
-    <Folder Include="todo\templates\" />
-    <Folder Include="todo\templates\todo" />
-    <Folder Include="web" />
+    <Folder Include="app\" />
+    <Folder Include="app\migrations\" />
+    <Folder Include="app\templates\" />
+    <Folder Include="app\templates\app\" />
+    <Folder Include="web\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|VisualStudio|.venv" />
