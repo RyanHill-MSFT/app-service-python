@@ -14,6 +14,7 @@
     <InterpreterId>Global|VisualStudio|.venv</InterpreterId>
     <IsWindowsApplication>False</IsWindowsApplication>
     <Name>djangoweb</Name>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
