@@ -8,11 +8,16 @@ Command-line utility for administrative tasks.
 
 import os
 import sys
+from dotenv import load_dotenv
 
-if __name__ == '__main__':
+def main():
+    load_dotenv()
+
+    settings_module = "web.settings.production" if 'WEBSITE_HOSTNAME' in os.environ else "web.settings.development"
     os.environ.setdefault(
         'DJANGO_SETTINGS_MODULE',
-        'web.settings')
+        settings_module)
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -22,3 +27,6 @@ if __name__ == '__main__':
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+
+if __name__ == '__main__':
+    main()

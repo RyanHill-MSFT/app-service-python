@@ -339,12 +339,14 @@ instance/
 
 # Environments
 .env
-.venv
+.venv*
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+__azurite*
+.deployment
 
 # Cake - Uncomment if you are using it
 # tools/**
